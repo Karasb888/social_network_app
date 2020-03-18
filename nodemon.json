@@ -1,12 +1,13 @@
 {
-    "watch": ["app.ts", "models/", "routes/", "middleware/", ".env"],
+    "watch": ["config/*", "middlewares/*", "routes/*", "models/*"],
     "ignore": [
         ".git",
+        "dist/",
         "node_modules/**/node_modules",
         "front/**/*"
       ],
     "events": {
-        "restart": "npm run dev:start"
+        "restart": "npm run build"
     },
     "ext": "ts, js, json"
   }

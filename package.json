@@ -3,16 +3,17 @@
   "version": "0.0.1",
   "description": "Social network app (MERN stack)",
   "main": "dist/app.js",
+  "engines": {
+    "node": ">=10.0.0"
+  },
   "scripts": {
     "clean": "rimraf dist/*",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "tsc": "tsc",
     "build": "npm-run-all clean lint tsc",
-    "dev-front": "npm run server --prefix front",
-    "dev:start": "npm-run-all build",
-    "dev": "nodemon",
-    "start": "node .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-front": "npm run build --prefix front",
+    "dev": "npm run build && nodemon",
+    "start": "npm run build && npm run build-front && node ."
   },
   "keywords": [
     "MERN",
@@ -33,7 +34,7 @@
     "@typescript-eslint/eslint-plugin": "^2.24.0",
     "@typescript-eslint/parser": "^2.24.0",
     "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-airbnb-base": "^14.1.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-plugin-import": "^2.20.1",

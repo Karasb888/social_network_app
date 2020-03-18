@@ -4,7 +4,7 @@ import path from 'path'
 import mongoose from 'mongoose'
 
 // initialize configuration
-dotenv.config({ path: '/config/.env' })
+dotenv.config({ path: path.resolve(__dirname, '../config/.env') })
 
 const PORT = process.env.PORT || 5000
 const BUILD_ENV = process.env.NODE_ENV || 'production'
@@ -18,6 +18,9 @@ if (BUILD_ENV === 'production') {
     res.sendFile(path.resolve(__dirname, 'front', 'dist', 'index.html'))
   })
 }
+
+// eslint-disable-next-line no-console
+console.log(MONGO_DB_URI)
 
 async function start(): Promise<void> {
   try {
