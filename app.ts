@@ -4,7 +4,7 @@ import path from 'path'
 import mongoose from 'mongoose'
 
 // initialize configuration
-dotenv.config()
+dotenv.config({ path: '/config/.env' })
 
 const PORT = process.env.PORT || 5000
 const BUILD_ENV = process.env.NODE_ENV || 'production'
