@@ -1,26 +1,23 @@
-import dotenv from 'dotenv'
-import express from 'express'
-import path from 'path'
-import mongoose from 'mongoose'
+import dotenv from 'dotenv';
+import express from 'express';
+import path from 'path';
+import mongoose from 'mongoose';
 
 // initialize configuration
-dotenv.config({ path: path.resolve(__dirname, '../config/.env') })
+dotenv.config({ path: path.resolve(__dirname, '../config/.env') });
 
-const PORT = process.env.PORT || 5000
-const BUILD_ENV = process.env.NODE_ENV || 'production'
-const { MONGO_DB_URI } = process.env
+const PORT = process.env.PORT || 5000;
+const BUILD_ENV = process.env.NODE_ENV || 'production';
+const { MONGO_DB_URI } = process.env;
 
-const app = express()
+const app = express();
 
 if (BUILD_ENV === 'production') {
-  app.use('/', express.static(path.join(__dirname, 'front', 'dist')))
+  app.use('/', express.static(path.join(__dirname, 'front', 'dist')));
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'front', 'dist', 'index.html'))
-  })
+    res.sendFile(path.resolve(__dirname, 'front', 'dist', 'index.html'));
+  });
 }
-
-// eslint-disable-next-line no-console
-console.log(MONGO_DB_URI)
 
 async function start(): Promise<void> {
   try {
@@ -28,17 +25,17 @@ async function start(): Promise<void> {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
-    })
+    });
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.log(`Server error ${err}`)
-    process.exit(1)
+    console.log(`Server error ${err}`);
+    process.exit(1);
   }
 }
 
-start()
+start();
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
-  console.log(`server started at http://localhost:${PORT}`)
-})
+  console.log(`server started at http://localhost:${PORT}`);
+});
