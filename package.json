@@ -13,7 +13,7 @@
     "build": "npm-run-all clean lint tsc",
     "build-front": "npm run build --prefix front",
     "dev": "npm run build && nodemon",
-    "start": "npm run build && npm run build-front && node ."
+    "start": "npm run clean && npm run tsc && npm run build-front && node ."
   },
   "keywords": [
     "MERN",
