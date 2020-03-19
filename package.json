@@ -25,11 +25,7 @@
   ],
   "author": "Ivan Mazurenko",
   "license": "ISC",
-  "devDependencies": {},
-  "dependencies": {
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "mongoose": "^5.9.5",
+  "devDependencies": {
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.3",
     "@types/fs-extra": "^8.1.0",
@@ -51,5 +47,10 @@
     "rimraf": "^3.0.2",
     "ts-node": "^8.6.2",
     "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.5"
   }
 }
