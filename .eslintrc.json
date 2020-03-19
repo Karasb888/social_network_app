@@ -13,7 +13,7 @@
   },
   "plugins": ["@typescript-eslint", "prettier"],
   "extends": [
-    "airbnb/base",
+    "airbnb-base",
     "plugin:import/errors",
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
